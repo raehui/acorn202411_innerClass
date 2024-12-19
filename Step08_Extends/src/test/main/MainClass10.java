@@ -9,8 +9,6 @@ public class MainClass10 {
 		clear();
 		light();
 		send();
-		
-		
 	}
 
 }
