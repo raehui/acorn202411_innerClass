@@ -13,12 +13,16 @@ public class MainClass03 {
 		//HandPhone type 안에 있는 값은 Object type(부모 type) 변수에 대입 가능!
 		Object p3=p1;
 		
-		//type casting : 더 큰 범위에서 작은 범위로 담기는 경우가 될 때는 같은 경우인데 그럴 때 사용함
-		//뭘 new 했는지가 중요한가?
+		//type casting : 부모 클래스의 객체를 자식 클래스이 객체
+		//뭘 new 했는지가 중요한가
 		//컴파일 할 때는 오류가 안 나지만 실행할 때는 오류가 발생할 수 있음
 		
 		//casting 후에 담을 수 있다.
 		HandPhone p4 =(HandPhone)p3;
+		p4.takePicture();
+		
+		Phone p5 = (Phone)p3;
+		p5.Call();
 	}
 
 }

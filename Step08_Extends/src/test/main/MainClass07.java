@@ -36,6 +36,13 @@ public class MainClass07 {
 		//변수에 담지 않고 casting 후에 바로 메서드를 호출할 수 있음
 		((Phone)objs[3]).Call();
 		
+		//objs 배열의 4번방에 있는 참조값을 이용해서 콘솔창을 스캔해보시오
+		Scanner s1=(Scanner)objs[4];
+		s1.nextLine();
+		
+		
+		
+		
 	}
 
 }
