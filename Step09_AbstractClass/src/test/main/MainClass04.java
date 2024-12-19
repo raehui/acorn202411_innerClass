@@ -17,6 +17,7 @@ public class MainClass04 {
 		
 		//아래의 useWeapon()메소드를 호출하려면 Weapon type 의 참조값이 필요하다, 하지만 Weapon의 자식이 올수도
 		//아래의 메소드를 호출했을때 "바다에 있는 적들을 공격" 하려면 여기에서 어떻게 코딩해야 할까?
+		
 		Weapon w1=new SeaWeapon1();		
 		MainClass04.useWeapon(w1);
 		
