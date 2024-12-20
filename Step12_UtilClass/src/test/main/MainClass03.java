@@ -31,11 +31,25 @@ public class MainClass03 {
 		//forEach는 Consumer type이랑 꼭 같이 사용해야 한다.
 		greets.forEach(con);
 		System.out.println("---- ----");
+		
 		greets.forEach(new Consumer<String>(){
 			public void accept(String t) {
 				System.out.println(t);
 			}
 		});
+		
+		System.out.println("---화살표 함수 이용하기--");
+		//화살표 함수 사용해서 이용하기
+		//메서드가 하나이기에 가능
+		greets.forEach((String a)->{
+			System.out.println(a);
+		});
+		
+		
+
+		
+		
+		
 		
 		
 		
