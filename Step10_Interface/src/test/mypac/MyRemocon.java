@@ -1,7 +1,7 @@
 package test.mypac;
 
 public class MyRemocon implements Remocon{
-	//git 변경사항입니다!
+	//git 변경사항입니다~
 	@Override
 	public void up() {
 		// TODO Auto-generated method stub
