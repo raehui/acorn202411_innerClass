@@ -1,6 +1,7 @@
 package test.main;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class MainClass03 {
@@ -64,5 +65,16 @@ public class MainClass03 {
 //		greets.forEach((String a)->{
 //			System.out.println(a);
 //		});		
+		forEach(greets, (item)->{
+			System.out.println(item);
+		});
 	}//main end
+	
+	//숨겨진 내장된 부분
+	//accept 의 동작만을 설정하면 된다!
+	public static void forEach(List<String> list, Consumer<String> con) {
+		for(String tmp:list) {
+			con.accept(tmp);
+		}
+	}
 }

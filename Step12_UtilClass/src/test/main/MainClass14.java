@@ -39,8 +39,6 @@ public class MainClass14 {
 		String info=String.format("번호: %d 이름:%s 제목:%s",tmp.getNo(),tmp.getName(),tmp.getTitle());
 		System.out.println(info);
 	}
-	
-	
 		
 	}
 

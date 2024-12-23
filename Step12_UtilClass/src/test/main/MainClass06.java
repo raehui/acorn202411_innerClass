@@ -36,6 +36,7 @@ public class MainClass06 {
 			String info=String.format("번호: %d, 이름:%s, 주소: %s", tmp.getNum(),tmp.getName(),tmp.getAddr());
 			System.out.println(info);
 			
+			
 		}
 		
 		//테스트 메서드 호출(매개 변수에 전달할 String type 의 갯수는 유동적이다.)
