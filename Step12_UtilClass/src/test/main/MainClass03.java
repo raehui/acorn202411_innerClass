@@ -31,8 +31,7 @@ public class MainClass03 {
 		};
 		/*
 		 * Arraylist 객체의 forEach() 메소드를 호출하면 Consumer type 객체를 전달하면
-		 * 전달된 객체의 accept() 메소드를 호출하면서 - 
-		 * 그렇다면 accept()메소드는 Consumer 객체에 있는 메소드인가? 맞음
+		 * 전달된 객체의 accept() 메소드를 호출하면서		 
 		 * Arraylist 객체에 저당된 item 을 순서대로 매개 변수에 전달해 준다.
 		 */
 				

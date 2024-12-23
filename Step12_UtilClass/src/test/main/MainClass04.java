@@ -32,23 +32,11 @@ public class MainClass04 {
 		
 		System.out.println("----forEach-----");
 		//5. ArrayList 객체의 forEach()메소드를 이용해서 ArrayList 객체에 저장된 모든 Car 객체의 drive()
-		//메소드를 순서대로 호출해 보세요.
-//		Consumer<Car> con =new Consumer<Car>() {
-//			
-//			@Override
-//			public void accept(Car t) {
-//				// TODO Auto-generated method stub
-//			t.drive();
-//			}
-//		};
-//		cars.forEach(con);
-		
-		cars.forEach((a)->{
-			a.drive();
+		//메소드를 순서대로 호출해 보세요.		
+		cars.forEach((b)->{//cars 리스트에 들어 있는 첫번째 요소를 b라는 이름으로 전달
+			b.drive();
 		});
-		
-		
-	
+			
 	}//main end
 
 }

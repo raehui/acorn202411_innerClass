@@ -9,6 +9,7 @@ package test.mypac;
  * 3. 필드의 접근 메소드 setter,getter 메소드가 있어야 한다.
  */
 
+
 public class MemberDto {
 	//필드의 접근 지정자를 private
 	private int num;

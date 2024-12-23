@@ -39,11 +39,11 @@ public class MainClass06 {
 		}
 		
 		//테스트 메서드 호출(매개 변수에 전달할 String type 의 갯수는 유동적이다.)
-		test();
+//		test();
 		test("kim");
 		test("kim","lee","park");
 		test("안녕","이제부터","점심시간~");
-	
+		
 	}
 	
 	
@@ -52,6 +52,9 @@ public class MainClass06 {
 	public static void test(String...msgs) {
 		//String ...은 String[] type 이다.
 		String[] a= msgs;
+		//a가 String[]이니 가능
+		System.out.println(a[0]);
+		
 		
 	}
 
