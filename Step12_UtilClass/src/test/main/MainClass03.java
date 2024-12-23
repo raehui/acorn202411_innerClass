@@ -19,39 +19,51 @@ public class MainClass03 {
 		
 		System.out.println("---- ---");
 		
+		//consumer
 		Consumer<String> con=new Consumer<>() {
 			
 			@Override
 			public void accept(String t) {
 				// TODO Auto-generated method stub
+				//매개 변수에 전달되는 item 을 가지고 어떤 작업을 할지 여기에 coding 을 하면된다.
 				System.out.println(t);
 			}
 		};
+		/*
+		 * Arraylist 객체의 forEach() 메소드를 호출하면 Consumer type 객체를 전달하면
+		 * 전달된 객체의 accept() 메소드를 호출하면서 - 
+		 * 그렇다면 accept()메소드는 Consumer 객체에 있는 메소드인가? 맞음
+		 * Arraylist 객체에 저당된 item 을 순서대로 매개 변수에 전달해 준다.
+		 */
 				
 		//forEach는 Consumer type이랑 꼭 같이 사용해야 한다.
 		greets.forEach(con);
-		System.out.println("---- ----");
+		System.out.println("--------");
 		
-		greets.forEach(new Consumer<String>(){
-			public void accept(String t) {
-				System.out.println(t);
-			}
+		
+		Consumer<String> con2=(t)->{
+			System.out.println(t);
+		};
+		
+		greets.forEach(con2);
+		
+		System.out.println("--------");
+		
+		greets.forEach((t)->{
+			System.out.println(t);
 		});
-		
-		System.out.println("---화살표 함수 이용하기--");
-		//화살표 함수 사용해서 이용하기
-		//메서드가 하나이기에 가능
-		greets.forEach((String a)->{
-			System.out.println(a);
-		});
-		
-		
-
-		
-		
-		
-		
-		
-		
+				
+//		greets.forEach(new Consumer<String>(){
+//			public void accept(String t) {
+//				System.out.println(t);
+//			}
+//		});
+//		
+//		System.out.println("---화살표 함수 이용하기--");
+//		//화살표 함수 사용해서 이용하기
+//		//메서드가 하나이기에 가능
+//		greets.forEach((String a)->{
+//			System.out.println(a);
+//		});		
 	}//main end
 }
