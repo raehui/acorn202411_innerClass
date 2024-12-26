@@ -5,11 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import test.frame04.MyFrame;
-
 public class MainClass01 {
 	public static void main(String[] args) {
-		
         try {
             // 요청 보낼 URL 설정
             URL url = new URL("https://acornacademy.co.kr"); // 예제 URL
