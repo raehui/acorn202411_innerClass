@@ -110,7 +110,7 @@ public class MemoFrame02 extends JFrame {
 		var f=new MemoFrame02("메모 프레임");
 		f.setBounds(100,100,500,500);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setVisible(true);
+		f.setVisible(true); 
 		
 			
 	}

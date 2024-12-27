@@ -16,6 +16,7 @@ public class MyUtil {
 	
 	//method 의 return type 앞에 static 예약어를 붙여서 static 메소드를 만들 수 있다.
 	public static void send() {
+		System.out.println(version);
 		System.out.println("전송합니다");
 	}
 
