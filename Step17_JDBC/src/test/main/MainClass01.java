@@ -13,6 +13,7 @@ public class MainClass01 {
 		 * 모든 사원의 사원번호, 사원이름, 직업, 급여를 사원이름으로 내림차순 정렬해서 SELECT 한다음
 		 * 콘솔창에 출력하기
 		 */
+		
 		/*
 		 * xxx.jar 파일은 class 파일 여러개가 압축되어 있다.
 		 */
@@ -55,8 +56,7 @@ public class MainClass01 {
 				String ename=rs.getString("ename");
 				String job=rs.getString("job");
 				double sal=rs.getDouble("S");
-				System.out.println(empno+ " | " + ename+ " | "+ job+" | "+sal);
-				
+				System.out.println(empno+ " | " + ename+ " | "+ job+" | "+sal);				
 			}
 			
 		}catch (Exception e) {
