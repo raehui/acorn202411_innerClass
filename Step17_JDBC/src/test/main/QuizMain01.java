@@ -23,7 +23,7 @@ public class QuizMain01 {
 		PostDao dao=new PostDao();
 		boolean isSuccess =dao.insert(dto);
 		if(isSuccess) {
-			System.out.printf("%d 번째 글에 제목이 %s로 저장되었습니다.",,title);			
+			System.out.printf("%d 번째 글에 제목이 %s로 저장되었습니다.",title);			
 		}else {
 			System.out.println("저장 실패!");
 		}
