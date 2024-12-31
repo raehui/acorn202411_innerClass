@@ -6,6 +6,15 @@ public class ToDoDto {
 	private String content;
 	
 	public ToDoDto() {}
+	
+
+	public ToDoDto(int num, String todo, String content) {
+		this.num = num;
+		this.todo = todo;
+		this.content = content;
+	}
+
+
 
 	public int getNum() {
 		return num;

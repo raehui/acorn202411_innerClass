@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -20,7 +22,7 @@ import test.dao.MemberDao;
 import test.dao.ToDoDao;
 import test.dto.ToDoDto;
 
-public class TodolistFrame extends JFrame implements ActionListener {
+public class TodolistFrame extends JFrame implements ActionListener, PropertyChangeListener {
 	//필드
 	JTextField inputtodo,inputcontent;
 	DefaultTableModel model;
@@ -40,6 +42,10 @@ public class TodolistFrame extends JFrame implements ActionListener {
 		// JButton
 		JButton addbtn=new JButton("추가");
 		JButton deletebtn=new JButton("삭제");
+		
+		
+		
+		
 		//패널로 감싸주기
 		Panel panel=new Panel();
 		panel.add(label1);
@@ -57,9 +63,21 @@ public class TodolistFrame extends JFrame implements ActionListener {
 		//화면에 보여줄 열이름
 		String[] colNames= {"번호", "todo","내용"};
 		//테이블과 연결한 모델 객체
-		model=new DefaultTableModel();
-		model.setColumnIdentifiers(colNames);
+		model=new DefaultTableModel(colNames,0) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				System.out.println(row+"|"+column);
+				if(column==0) {
+					return false;
+				}else {
+					return true;
+				}
+				
+			}
+		};
 		
+		model.setColumnIdentifiers(colNames);
+				
 		model.setRowCount(0);
 		//테이블과 모델을 연결
 		table.setModel(model);
@@ -114,6 +132,7 @@ public class TodolistFrame extends JFrame implements ActionListener {
 				return;
 			}
 			//찐으로 삭제하기
+			
 			int num=(int)model.getValueAt(selectedRow, 0);
 			ToDoDao dao=new ToDoDao();
 			dao.delete(num);
@@ -122,6 +141,42 @@ public class TodolistFrame extends JFrame implements ActionListener {
 		//입력한 값이 화면에 나타나게끔		
 		printtodo();
 				
+	}
+	
+	@Override
+	//수정 기능 실행하기
+	public void propertyChange(PropertyChangeEvent evt) {
+		//
+		System.out.println("property change!");
+		System.out.println("property name:"+evt.getPropertyName());
+		
+		System.out.println("isEditing:"+table.isEditing());
+		/*
+		 * property name 이 "tableCellEditor"이고
+		 * table이 수정 중이 아닐 때
+		 * 현재 포커스가 있는 곳의 정보를 모두 읽어와서 DB에 수정 반영하기
+		 */
+		if(evt.getPropertyName().equals("tableCellEditor") && !table.isEditing()) {
+			//현재 포커스가 있는 row의 정보를 DB에 수정 반영한다.
+			//변화된 값을 읽어와서 DB에 반영한다.
+			//수정된 칼럼에 있는 row 전체의 값을 읽어온다.
+			int selectedrow=table.getSelectedRow();
+			int num=(int)model.getValueAt(selectedrow, 0);
+			String todo=(String)model.getValueAt(selectedrow, 1);
+			String content=(String)model.getValueAt(selectedrow, 2);
+			
+			//수정할 회원의 정보를 ToDodto에 객체에 담고
+			ToDoDto dto=new ToDoDto(num,todo,content);
+			
+			new ToDoDao().update(dto);
+			
+			table.clearSelection();
+			
+			
+		}
+		
+		
+		
 	}
 	
 	public void printtodo() {
@@ -135,4 +190,7 @@ public class TodolistFrame extends JFrame implements ActionListener {
 		}
 				
 	}//메서드 end
+
+	
+	
 }
