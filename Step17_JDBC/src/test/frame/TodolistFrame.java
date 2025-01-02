@@ -99,6 +99,8 @@ public class TodolistFrame extends JFrame implements ActionListener, PropertyCha
 		//버튼에 command 설정
 		addbtn.setActionCommand("add");
 		deletebtn.setActionCommand("delete");
+		
+		table.addPropertyChangeListener(this);
 				
 	}//생성자 end
 	
@@ -146,11 +148,7 @@ public class TodolistFrame extends JFrame implements ActionListener, PropertyCha
 	@Override
 	//수정 기능 실행하기
 	public void propertyChange(PropertyChangeEvent evt) {
-		//
-		System.out.println("property change!");
-		System.out.println("property name:"+evt.getPropertyName());
-		
-		System.out.println("isEditing:"+table.isEditing());
+	
 		/*
 		 * property name 이 "tableCellEditor"이고
 		 * table이 수정 중이 아닐 때
@@ -167,6 +165,9 @@ public class TodolistFrame extends JFrame implements ActionListener, PropertyCha
 			
 			//수정할 회원의 정보를 ToDodto에 객체에 담고
 			ToDoDto dto=new ToDoDto(num,todo,content);
+			dto.setNum(num);
+			dto.setTodo(todo);
+			dto.setContent(content);
 			
 			new ToDoDao().update(dto);
 			
