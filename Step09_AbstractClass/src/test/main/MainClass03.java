@@ -15,8 +15,6 @@ public class MainClass03 {
 	public static void main(String[] args) {
 		Gura g=new Gura();
 		g.say();
-//		System.out.println(num);
-//		test();
 		
 		//메소드 안에도 클래스를 정의할 수 있다.
 		//여기 정의한 클래스는 메소드 안쪽 영역에서만 사용할 수 있다.
